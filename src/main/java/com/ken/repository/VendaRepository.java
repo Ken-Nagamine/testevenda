@@ -5,10 +5,14 @@
  */
 package com.ken.repository;
 
+import com.ken.entity.Venda;
+import org.springframework.data.jpa.repository.JpaRepository;
+
 /**
  *
  * @author ken
  */
-public interface VendaRepository {
+public interface VendaRepository extends JpaRepository<Venda, Long>{
     
+    Venda findById(long id);
 }
