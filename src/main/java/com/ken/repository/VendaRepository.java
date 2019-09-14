@@ -24,7 +24,7 @@ public interface VendaRepository extends JpaRepository<Venda, Long>{
     List<Venda> buscarVendaComDataVendaNoIntervalo(String de, String ate);
     
     // retorna nome de vendedor,quant vendas, total vendas e média das vendas.
-    @Query(value="SELECT vendedor_nome as vendedor, COUNT(vendedor_id) as qtd_vendas , SUM(valor) as total_vendas, (sum(valor)/ count(vendedor_id)) as media_diaria from venda v where v.data_venda between ?1 and ?2 group by vendedor_nome", nativeQuery = true)
+    @Query(value="SELECT vendedor_nome as vendedor, COUNT(vendedor_id) as qtd_vendas , SUM(valor) as total_vendas, AVG(v.valor) as media_diaria from venda v where v.data_venda between ?1 and ?2 group by vendedor_nome", nativeQuery = true)
     public ArrayList<Object> buscarVendedorTotalVendasMediaDiaria( String data_ini, String data_fim);
    
 }

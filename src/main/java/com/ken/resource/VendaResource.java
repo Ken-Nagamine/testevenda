@@ -62,10 +62,6 @@ public class VendaResource {
     @GetMapping("/consulta_vendedor_periodo")
     public ArrayList<Object> listaVendedorPeriodo(@RequestParam("data_ini") String data_ini, @RequestParam("data_fim") String data_fim){
         
-        //******************************************************************
-        // falta trasformar arraylist em json para retorno de informações..... 
-        
-        
         return vendaRepository.buscarVendedorTotalVendasMediaDiaria(data_ini, data_fim);
     }
     
